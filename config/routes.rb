@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts, only: [:new, :create, :show, :index, :destroy]
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
   get 'home/index' => 'homes#index'
