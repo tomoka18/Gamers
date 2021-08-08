@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.where(genre: params[:genre]).page(params[:page]).reverse_order
   end
 
   def show
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :body, :user_id)
+      params.require(:post).permit(:title, :body, :user_id, :genre_id)
     end
 
 end

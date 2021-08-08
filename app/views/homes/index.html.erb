@@ -1,5 +1,6 @@
 <h2>今日はどのゲームのフレンドを探しますか？</h2>
 
-<p>ゲーム名</p>
-<p>ゲーム名</p>
-<p>ゲーム名</p>
+<% Genre.all.each do |genre|%>
+  <p><%= link_to genre.name, posts_path(genre: genre.id) %></p>
+<% end %>
+
