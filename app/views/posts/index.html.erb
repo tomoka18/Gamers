@@ -3,3 +3,5 @@
   <p>タイトル</p>
   <%= link_to post.title, post_path(post.id) %>
 <% end %>
+
+<%= paginate @posts %>
