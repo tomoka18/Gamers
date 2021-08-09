@@ -1,3 +1,5 @@
+<h2>投稿ユーザー</h2>
+<%= link_to @post.user.name, user_path(@post.user) %>
 <h2>タイトル</h2>
 <p><%= @post.title %></p>
 <h2>本文</h2>
