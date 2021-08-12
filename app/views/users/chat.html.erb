@@ -1,0 +1,10 @@
+<% current_user.rooms.each do |room| %>
+  <% room.user_rooms.each do |user_room| %>
+    <% if user_room.user.id == current_user.id %>
+      <%= link_to chat_path(user_room.user.id) do %>
+      <%= user_room.user.name %>
+      さんとチャットを始める
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
