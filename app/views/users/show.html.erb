@@ -15,3 +15,6 @@
 <% else %>
 <%= render 'users/follow', user: @user %>
 <% end %>
+<% if current_user != @user %>
+  <%= link_to 'chatを始める', chat_path(@user.id)%>
+<% end %>
