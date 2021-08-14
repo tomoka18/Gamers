@@ -4,7 +4,7 @@
 <p><%= @post.title %></p>
 <h2>本文</h2>
 <p><%= @post.body %></p>
-<h2>ジャンル</h2>
+<h2>ゲームタイトル</h2>
 <p><%= @post.genre.name %></p>
 
 <%= link_to "削除", post_path(@post), method: :delete , class:'btn btn-danger'  %>
@@ -19,6 +19,7 @@
       <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
     </div>
     <% end %>
+  <% end %>
     <% if @post.liked_by?(current_user) %>
     <p>
       <%= link_to post_likes_path(@post), method: :delete do %>
@@ -32,7 +33,6 @@
       <% end %>
     </p>
     <% end %>
-  <% end %>
     </div>
 <div class="new-comment">
   <%= form_with(model:[@post, @post_comment], local: true) do |f| %>

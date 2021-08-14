@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'genres/index'
-  get 'genres/show'
+  resources :genres, only: [:index, :show]
+  
   devise_for :users
   resources :users, only: [:show, :edit, :update]do
     resource :relationships, only: [:create, :destroy]
@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   end
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
-  get 'home/index' => 'homes#index'
   get 'chat/:id' => 'chats#show', as: 'chat'
   resources :chats, only: [:create]
   resources :genres, only: [:index, :show]

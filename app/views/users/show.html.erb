@@ -1,20 +1,40 @@
-<h2>プロフィール</h2>
-<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "unnamed.jpg" %>
-<p>名前</p>
-<%= @user.name %>
-<p>自己紹介</p>
-<%= @user.introduction %>
-<p>follows</p>
-<%= link_to " #{@user.followings.count} ", user_followings_path(@user.id) %>
-<p>followers</p>
-<%= link_to " #{@user.followers.count} ", user_followers_path(@user.id) %>
-<% if @user == current_user %>
-<%= link_to "プロフィール編集", edit_user_path(@user), class: "btn-block" %>
-<% elsif current_user.following?(@user) %>
-<%= render 'users/follow', user: @user %>
-<% else %>
-<%= render 'users/follow', user: @user %>
-<% end %>
-<% if current_user != @user %>
-  <%= link_to 'chatを始める', chat_path(@user.id)%>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-8">
+      <div class="row justify-content-center m-5">
+        <h2>プロフィール</h2>
+      </div>
+      <div class="row justify-content-center">
+        <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "unnamed.jpg",size: "200x200" %>
+      </div>
+      <div class="text-center mt-3 mb-3">
+        <%= @user.name %><br>
+        <%= @user.introduction %>
+      </div>
+      <div class="row justify-content-center text-center m-5">
+        <div class="col-md-2 border mr-2">
+          <p>follows</p>
+          <%= link_to " #{@user.followings.count} ", user_followings_path(@user.id) %>
+        </div>
+        <div class="col-md-2 border ml-2">
+          <p>followers</p>
+          <%= link_to " #{@user.followers.count} ", user_followers_path(@user.id) %>
+        </div>
+      </div>
+      <div class="row justify-content-center text-center m-5">
+        <% if @user == current_user %>
+        <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-info btn-md mr-2" %>
+        <% elsif current_user.following?(@user) %>
+        <%= render 'users/follow', user: @user %>
+        <% else %>
+        <%= render 'users/follow', user: @user %>
+        <% end %>
+
+        <% if current_user != @user %>
+          <%= link_to 'chatを始める', chat_path(@user.id), class: "btn btn-outline-primary btn-md ml-2" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

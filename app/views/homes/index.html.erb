@@ -1,8 +1,0 @@
-<h2>今日はどのゲームのフレンドを探しますか？</h2>
-
-<p>投稿から探す</p>
-<% Genre.all.each do |genre|%>
-  <p><%= link_to genre.name, posts_path(genre: genre.id) %></p>
-<% end %>
-<p>募集する</p>
-<%= link_to "投稿する",  new_post_path %>
