@@ -10,7 +10,9 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.where(genre: params[:genre]).page(params[:page]).reverse_order
+    # @posts = Post.where(genre: params[:genre]).page(params[:page]).reverse_order
+    @search = Post.ransack(params[:q])
+    @posts = @search.result.page(params[:page]).reverse_order
   end
 
   def show

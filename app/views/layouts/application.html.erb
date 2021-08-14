@@ -14,11 +14,16 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <div class="container">
           <%= link_to 'Gamers', root_path , class:"navbar-brand" %>
+          <%= search_form_for @search do |f| %>
+            <%= f.text_field :title_cont, placeholder: '名前を入力...' %>
+            <%= f.submit ("検索する") %>
+          <% end %>
+
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li><%= link_to "トップ", root_path, class: "nav-link" %></li>
-            <li><%= link_to "ホーム", home_index_path, class: "nav-link" %></li>
-            <li><%#= link_to "DM", cart_products_path, class: "nav-link" %>DM</li>
+            <li><%= link_to "ホーム", genres_path, class: "nav-link" %></li>
+            <li><%= link_to "DM", dm_path, class: "nav-link" %></li>
             <li><%= link_to "マイページ", user_path(current_user.id), class: "nav-link" %></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
             <% else %>
@@ -40,6 +45,7 @@
         <div class='row'>
           <div class='mx-auto'>
             <p>ゲームやろおおおおお卍卍卍</p>
+            <%= link_to "お問い合わせはこちらから", new_contact_path %>
           </div>
         </div>
       </div>
