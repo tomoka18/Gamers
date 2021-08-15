@@ -16,3 +16,11 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+.main-container {
+background-image:url('fpsimage.jpeg');
+height: 600px;
+background-size:cover;
+background-color:rgba(255,255,255,0.6);
+background-blend-mode:lighten;
+}
