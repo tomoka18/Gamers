@@ -1,6 +1,19 @@
-<h1>ゲームタイトル一覧</h1>
-<% @genres.each do |genre| %>
-  <p><%= link_to genre.name, genre_path(genre.id) %></p>
-<% end %>
-
-<%= link_to "投稿する",  new_post_path %>
+<div class="container">
+    <div class="row justify-content-center align-items-center  main-container">
+      <div class="col-md-6">
+        <div class="col-md-12">
+          <div class="row justify-content-center text-center m-5">
+            <h1>ゲームタイトル一覧</h1>
+          </div>
+          <div class="row justify-content-center text-center">
+            <% @genres.each do |genre| %>
+              <%= link_to genre.name, genre_path(genre.id), class: "m-4 btn btn-outline-dark"%>
+            <% end %>
+          </div>
+          <div class="row justify-content-center text-center mt-5 mb-5">
+          <%= link_to "新規投稿",  new_post_path, class: "btn btn-outline-dark" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
