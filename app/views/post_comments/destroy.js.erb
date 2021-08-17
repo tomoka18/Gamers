@@ -1,0 +1,3 @@
+$(".comments-count").html("コメント数: <%= @post.post_comments.count %>");
+$('.comments_index').html("<%= j(render 'posts/comments', post: @post, user: @user) %>", );
+$(".text_field").val("");
