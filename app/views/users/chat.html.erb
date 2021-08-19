@@ -5,7 +5,7 @@
         <h3 class="text-center m-4">DM一覧</h3>
         <% current_user.rooms.each do |room| %>
           <% room.user_rooms.each do |user_room| %>
-            <% if user_room.user.id == current_user.id %>
+            <% if user_room.user.id != current_user.id %>
               <%= link_to chat_path(user_room.user.id), class: "text-dark" do %>
               <%= user_room.user.name %>
               さんとのDM
