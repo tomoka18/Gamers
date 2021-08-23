@@ -4,6 +4,12 @@
     <div class="row justify-content-center align-items-center main-container">
       <div class="col-md-6">
         <div class="col-md-12">
+          <% if @post.errors.any? %>
+            <%= @post.errors.count %>件のエラーが発生しました
+            <% @post.errors.full_messages.each do |message| %>
+              <%= message %>
+            <% end %>
+          <% end %>
           <form>
             <h3 class="form-group text-center m-4">新規投稿</h3>
             <div class="form-group text-left">

@@ -8,4 +8,7 @@ class Post < ApplicationRecord
     likes.where(user_id: user.id).exists?
   end
 
+  validates :title, presence: true
+  validates :body, presence: true
+
 end
