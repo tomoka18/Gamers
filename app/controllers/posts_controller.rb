@@ -4,9 +4,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    post.save
-    redirect_to post_path(post.id)
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to post_path(@post.id)
+    else
+      render :new
+    end
   end
 
   def index
@@ -21,9 +24,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
+    @post = Post.find(params[:id])
     post.destroy
-    redirect_to posts_path
+    redirect_to genres_path
   end
 
   private

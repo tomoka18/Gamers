@@ -38,14 +38,16 @@
       </nav>
   　</header>
 
-      <%= yield %>
+    <%= yield %>
 
-    <footer class="footer">
-      <div class='container fixed-bottom'>
-        <div class='row'>
-          <div class='mx-auto'>
-            <p>ゲームやろおおおおお卍卍卍</p>
-            <%= link_to "お問い合わせはこちらから", new_contact_path, class: "text-dark" %>
+    <footer class="fixed-bottom footer border-top bg-light">
+      <div class="container">
+        <div class="text-center">
+          <div class="mx-auto">
+            <p style="margin: 5px">ゲームやろおおおおお卍卍卍</p>
+            <p style="margin: 5px">
+              <%= link_to "お問い合わせはこちらから", new_contact_path, class: "text-secondary" %>
+            </p>
           </div>
         </div>
       </div>
