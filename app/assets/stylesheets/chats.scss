@@ -6,9 +6,37 @@
   width:415px;
   height:430px;
   margin-bottom: 20px;
+  padding: 20px;
 }
 
 .scrolly{
   overflow:hidden;
   overflow-y:scroll;
+}
+
+.message-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+span.message {
+  padding: 10px;
+  border-radius: 14px;
+}
+.right-msg, .left-msg {
+  position: relative;
+}
+.right-msg > time {
+  position: absolute;
+  font-size: 0.7em;
+  color: #495057;
+  bottom: -10px;
+  left: -42px;
+}
+.left-msg > time {
+  position: absolute;
+  font-size: 0.7em;
+  color: #495057;
+  bottom: 0px;
+  right: -50px;
 }
