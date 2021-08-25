@@ -2,13 +2,21 @@
   <div class="row justify-content-center align-items-end main-container">
     <div class="col-md-5">
       <div class="col-md-12 mb-5">
-        
-        <div class="box scrolly">
+        <h4 class="text-center"><%= @user.name %>さんとのDM</h4>
+        <div class="box scrolly message-box">
         <% @chats.each do |chat| %>
           <% if chat.user == current_user %>
-            <div class="border bg-dark text-white rounded w-75 float-right m-1"><%= chat.message %></div>
+            <p class="right-msg" style="align-self: flex-end;">
+              <span class="border bg-dark text-white m-1 message"><%= chat.message %></span>
+              <time><%= minutes_in_words(chat.updated_at) %></time>
+            </p>
           <% else %>
-            <div class="border bg-white text-dark rounded w-75 m-1"><%= chat.message %></div>
+            <p>
+              <span class="border bg-white text-dark m-1 message left-msg">
+                <%= chat.message %>
+                <time><%= minutes_in_words(chat.updated_at) %></time>
+              </span>
+            </p>
           <% end %>
         <% end %>
         </div>
