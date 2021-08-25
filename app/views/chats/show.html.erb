@@ -1,14 +1,17 @@
 <div class="container">
-  <div class="row justify-content-center align-items-center main-container">
+  <div class="row justify-content-center align-items-end main-container">
     <div class="col-md-5">
-      <div class="col-md-12">
+      <div class="col-md-12 mb-5">
+        
+        <div class="box scrolly">
         <% @chats.each do |chat| %>
           <% if chat.user == current_user %>
-            <p class="text-right border bg-dark text-white rounded-pill"><%= chat.message %></p>
+            <div class="border bg-dark text-white rounded w-75 float-right m-1"><%= chat.message %></div>
           <% else %>
-            <p class="text-left border bg-white text-dark rounded-pill"><%= chat.message %><p>
+            <div class="border bg-white text-dark rounded w-75 m-1"><%= chat.message %></div>
           <% end %>
         <% end %>
+        </div>
         <div class="text-right">
           <%= form_with model: @chat do |f| %>
           <%= f.text_field :message, size: 43, class: "rounded" %>

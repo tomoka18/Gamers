@@ -78,3 +78,4 @@ end
 gem 'ransack'
 gem 'pry-rails'
 gem 'factory_bot_rails'
+gem 'rails-i18n'

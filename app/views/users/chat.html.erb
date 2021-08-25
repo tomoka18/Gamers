@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center main-container">
     <div class="col-md-6">
-      <div class="col-md-12">
+      <div class="col-md-12 d-flex flex-column">
         <h3 class="text-center m-4">DM一覧</h3>
         <% current_user.rooms.each do |room| %>
           <% room.user_rooms.each do |user_room| %>
