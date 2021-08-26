@@ -11,27 +11,25 @@ class User < ApplicationRecord
   has_many :user_rooms
   has_many :rooms, through: :user_rooms
   has_many :chats
-  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
-  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
   def follow(other_user)
-    unless self == other_user
-      self.relationships.find_or_create_by(followed_id: other_user.id)
-    end
+    relationships.find_or_create_by(followed_id: other_user.id) unless self == other_user
   end
 
   def unfollow(other_user)
-    relationship = self.relationships.find_by(followed_id: other_user.id)
+    relationship = relationships.find_by(followed_id: other_user.id)
     relationship.destroy if relationship
   end
 
   def following?(other_user)
-    self.followings.include?(other_user)
+    followings.include?(other_user)
   end
-  
-   validates :name, presence: true
-   validates :password, presence: true
-   validates :email, presence: true 
-   validates :email, uniqueness: true
+
+  validates :name, presence: true
+  validates :password, presence: true
+  validates :email, presence: true
+  validates :email, uniqueness: true
 end
