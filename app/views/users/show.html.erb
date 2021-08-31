@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row justify-content-center align-items-center main-container">
+  <div class="row justify-content-center align-items-center">
     <div class="col-md-8 mb-5">
       <div class="row justify-content-center mt-5 mb-4">
         <h2>プロフィール</h2>
@@ -14,16 +14,16 @@
       <div class="row justify-content-center text-center m-3">
         <div class="col-md-2 border rounded-pill mr-2">
           <p>follows</p>
-          <%= link_to " #{@user.followings.count} ", user_followings_path(@user.id), class: "text-dark" %>
+          <%= link_to " #{@user.followings.count} ", user_followings_path(@user.id), class: "text-light" %>
         </div>
         <div class="col-md-2 border rounded-pill ml-2">
           <p>followers</p>
-          <%= link_to " #{@user.followers.count} ", user_followers_path(@user.id), class: "text-dark" %>
+          <%= link_to " #{@user.followers.count} ", user_followers_path(@user.id), class: "text-light" %>
         </div>
       </div>
       <div class="row justify-content-center text-center m-5">
         <% if @user == current_user %>
-        <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-dark btn-md mr-2" %>
+        <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-outline-light btn-md mr-2" %>
         <% elsif current_user.following?(@user) %>
         <%= render 'users/follow', user: @user %>
         <% else %>
@@ -31,7 +31,7 @@
         <% end %>
 
         <% if current_user != @user %>
-          <%= link_to 'chatを始める', chat_path(@user.id), class: "btn btn-outline-dark btn-md ml-2" %>
+          <%= link_to 'chatを始める', chat_path(@user.id), class: "btn btn-outline-light btn-md ml-2" %>
         <% end %>
       </div>
     </div>

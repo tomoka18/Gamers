@@ -3,33 +3,33 @@
   <div class="container">
     <div class="row justify-content-center align-items-center">
       <div class="col-md-6">
-        <div class="col-md-12">
+        <div class="col-md-12 mt50px">
           <form>
-            <h3 class="text-center text-info">Sign up</h3>
+            <h3 class="text-center">新規登録</h3>
             <div class="form-group">
-              <%= f.label :name, class: "text-info" %><br />
+              <%= f.label :name %><br />
               <%= f.text_field :name, autofocus: true, class: 'form-control' %>
             </div>
 
             <div class="form-group">
-              <%= f.label :email, class: "text-info" %><br />
+              <%= f.label :email %><br />
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
             </div>
 
             <div class="form-group">
-              <%= f.label :password, class: "text-info" %>
+              <%= f.label :password %>
               <% if @minimum_password_length %>
-              <em class="text-info">(<%= @minimum_password_length %> characters minimum)</em>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
               <% end %><br />
               <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
             </div>
 
             <div class="form-group">
-              <%= f.label :password_confirmation, class: "text-info" %><br />
+              <%= f.label :password_confirmation %><br />
               <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
             </div>
             <div class="form-group text-center">
-              <%= f.submit "Sign up", class: "btn btn-info btn-md" %>
+              <%= f.submit "新規登録", class: "btn btn-light btn-md" %>
             </div>
             <div class="form-group text-center">
               <%= render "devise/shared/links" %>

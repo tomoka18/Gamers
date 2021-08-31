@@ -1,9 +1,9 @@
 <%= form_with model:@post, url:'/posts', local:true do |f| %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class="container">
-    <div class="row justify-content-center align-items-center main-container">
+    <div class="row justify-content-center align-items-center">
       <div class="col-md-6">
-        <div class="col-md-12">
+        <div class="col-md-12 mt100px">
           <% if @post.errors.any? %>
             <%= @post.errors.count %>件のエラーが発生しました
             <% @post.errors.full_messages.each do |message| %>
@@ -21,11 +21,11 @@
               <%= f.text_area :body, placeholder:"募集内容", size: "40x4" %>
             </div>
             <div class="form-group text-left">
-              <%= f.label :ゲームタイトル %>
+              <%= f.label :ゲーム名 %>
               <%= f.select :genre_id, Genre.all.map{ |genre| [genre.name, genre.id] }, {include_blank: '選択してください'} %>
             </div>
             <div class="form-group text-center">
-              <%= f.submit "投稿", class: "btn btn-outline-dark btn-md" %>
+              <%= f.submit "投稿", class: "btn btn-outline-light btn-md" %>
             </div>
           </form>
         </div>

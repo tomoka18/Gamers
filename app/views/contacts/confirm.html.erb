@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row justify-content-center align-items-center main-container">
+  <div class="row justify-content-center align-items-center">
     <div class="col-md-6">
-      <div class="col-md-12">
+      <div class="col-md-12 mt150px">
         <table>
           <tbody>
             <tr>
@@ -28,14 +28,14 @@
           <%= f.hidden_field :email %>
           <%= f.hidden_field :phone_number %>
           <%= f.hidden_field :message %>
-          <div><%= f.submit '送信', class: "btn btn-outline-dark btn-sm"%></div>
+          <div><%= f.submit '送信', class: "btn btn-outline-light btn-sm"%></div>
         <% end %>
         <%= form_for @contact, url: back_path do |f| %>
           <%= f.hidden_field :name %>
           <%= f.hidden_field :email %>
           <%= f.hidden_field :phone_number %>
           <%= f.hidden_field :message %>
-          <div><%= f.submit '入力画面に戻る', class: "btn btn-outline-dark btn-sm" %></div>
+          <div><%= f.submit '入力画面に戻る', class: "btn btn-outline-light btn-sm" %></div>
         <% end %>
       </div>
     </div>
