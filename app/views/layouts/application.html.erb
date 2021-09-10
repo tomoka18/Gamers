@@ -15,7 +15,7 @@
         <div class="container">
           <%= link_to image_tag("logo.jpg"), root_path , class:"navbar-brand" %>
           <%= search_form_for @search do |f| %>
-            <%= f.text_field :title_cont, placeholder: '名前を入力...' %>
+            <%= f.text_field :title_cont, placeholder: 'タイトルを検索' %>
             <%= f.submit ("検索する"), class: "btn btn-outline-light btn-sm" %>
           <% end %>
 
