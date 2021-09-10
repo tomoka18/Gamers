@@ -7,10 +7,12 @@ Rails.application.routes.draw do
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
+  
   resources :posts, only: %i[new create show index destroy] do
     resources :post_comments, only: %i[create destroy]
     resource :likes, only: %i[create destroy]
   end
+  
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
   get 'chat/:id' => 'chats#show', as: 'chat'
