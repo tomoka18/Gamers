@@ -27,7 +27,7 @@
 
           <ul class="navbar-nav ml-auto nav_menu_ul">
             <% if user_signed_in? %>
-            <li><%= link_to "トップ", root_path, class: "nav-link text-light nav_menu_li" %></li>
+            <li><%= link_to "通知", notifications_path, class: "nav-link text-light" %></li>
             <li><%= link_to "ホーム", genres_path, class: "nav-link text-light nav_menu_li" %></li>
             <li><%= link_to "DM", dm_path, class: "nav-link text-light nav_menu_li" %></li>
             <li><%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-light nav_menu_li" %></li>
@@ -45,6 +45,8 @@
   　</header>
 
     <%= yield %>
+
+    <div class="push"></div>
 
     <footer class="fixed-bottom footer border-top">
       <div class="container">
