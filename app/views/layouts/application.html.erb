@@ -7,11 +7,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <body class=" main-container">
     </head>
 
   　<header>
-      <nav class="navbar navbar-expand-lg navbar-dark border-bottom">
+      <span class="nav_toggle">
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+      <nav class="nav navbar navbar-expand-lg navbar-dark border-bottom">
         <div class="container">
           <%= link_to image_tag("logo.jpg"), root_path , class:"navbar-brand" %>
           <%= search_form_for @search do |f| %>
@@ -19,19 +25,19 @@
             <%= f.submit ("検索する"), class: "btn btn-outline-light btn-sm" %>
           <% end %>
 
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto nav_menu_ul">
             <% if user_signed_in? %>
-            <li><%= link_to "トップ", root_path, class: "nav-link text-light" %></li>
-            <li><%= link_to "ホーム", genres_path, class: "nav-link text-light" %></li>
-            <li><%= link_to "DM", dm_path, class: "nav-link text-light" %></li>
-            <li><%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-light" %></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-light" %></li>
+            <li><%= link_to "トップ", root_path, class: "nav-link text-light nav_menu_li" %></li>
+            <li><%= link_to "ホーム", genres_path, class: "nav-link text-light nav_menu_li" %></li>
+            <li><%= link_to "DM", dm_path, class: "nav-link text-light nav_menu_li" %></li>
+            <li><%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-light nav_menu_li" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-light nav_menu_li" %></li>
             <% else %>
           <!--ログインしていない時-->
-            <li><%= link_to "トップ", root_path, class: "nav-link text-light" %></li>
-            <li><%= link_to "About", home_about_path, class: "nav-link text-light" %></li>
-            <li><%= link_to "新規登録", new_user_registration_path, class: "nav-link text-light" %></li>
-            <li><%= link_to "ログイン", new_user_session_path, class: "nav-link text-light" %></li>
+            <li><%= link_to "トップ", root_path, class: "nav-link text-light nav_menu_li" %></li>
+            <li><%= link_to "About", home_about_path, class: "nav-link text-light nav_menu_li" %></li>
+            <li><%= link_to "新規登録", new_user_registration_path, class: "nav-link text-light nav_menu_li" %></li>
+            <li><%= link_to "ログイン", new_user_session_path, class: "nav-link text-light nav_menu_li" %></li>
           <% end %>
           </ul>
         </div>
@@ -52,6 +58,11 @@
         </div>
       </div>
     </footer>
+    <script>
+      $(".nav_toggle").on("click", function () {
+        $(".nav_toggle, .nav").toggleClass("show");
+      });
+    </script>
   </body>
 
 </html>
