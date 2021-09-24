@@ -22,7 +22,7 @@
         </div>
         <div class="text-right">
           <%= form_with model: @chat do |f| %>
-          <%= f.text_field :message, size: 43, class: "rounded" %>
+          <%= f.text_field :message, class: "rounded text-box" %>
           <%= f.hidden_field :room_id %>
           <%= f.submit "送信", class: "btn btn-dark btn-md btn-sm" %>
         <% end %>

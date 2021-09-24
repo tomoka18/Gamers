@@ -40,3 +40,20 @@ span.message {
   bottom: 0px;
   right: -50px;
 }
+
+.text-box {
+  width: 340px;
+}
+
+@media screen and (max-width: 425px) {
+  .box {
+    width:315px;
+  }
+  .text-box {
+    width: 250px;
+  }
+  .span.message {
+    padding: 6px;
+  }
+}
+
