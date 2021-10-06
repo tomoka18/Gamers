@@ -5,11 +5,13 @@
         <h4 class="text-center"><%= @user.name %>さんとのDM</h4>
         <div class="box scrolly message-box">
         <% @chats.each do |chat| %>
+        　<!--ログインユーザーのチャットを右側に表示-->
           <% if chat.user == current_user %>
             <p class="right-msg" style="align-self: flex-end;">
               <span class="border bg-dark text-white m-1 message"><%= chat.message %></span>
               <time><%= minutes_in_words(chat.updated_at) %></time>
             </p>
+          <!--ログインユーザーじゃないユーザーのチャットを左側に表示-->
           <% else %>
             <p>
               <span class="border bg-white text-dark m-1 message left-msg">
