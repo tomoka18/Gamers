@@ -3,8 +3,10 @@
     <div class="col-md-6">
       <div class="col-md-12 d-flex flex-column">
         <h3 class="text-center m-4">DM一覧</h3>
+        <!--ログインユーザーのルームを全部出す-->
         <% current_user.rooms.each do |room| %>
           <% room.user_rooms.each do |user_room| %>
+            <!--ルームのユーザーidがログインユーザーではないものを出す-->
             <% if user_room.user.id != current_user.id %>
               <%= link_to chat_path(user_room.user.id), class: "text-light" do %>
               <%= user_room.user.name %>
