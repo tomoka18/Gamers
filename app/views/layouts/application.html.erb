@@ -27,21 +27,53 @@
 
           <ul class="navbar-nav ml-auto nav_menu_ul">
             <% if user_signed_in? %>
-            <li><%= link_to "通知", notifications_path, class: "nav-link text-light" %></li>
-            <li><%= link_to "ホーム", genres_path, class: "nav-link text-light nav_menu_li" %></li>
-            <li><%= link_to "DM", dm_path, class: "nav-link text-light nav_menu_li" %></li>
-            <li><%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-light nav_menu_li" %></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-light nav_menu_li" %></li>
+            <li>
+              <%= link_to notifications_path, class: "nav-link text-light" do %>
+                <i class="far fa-bell"></i>通知
+              <% end %>
+            </li>
+            <li>
+              <%= link_to dm_path, class: "nav-link text-light nav_menu_li" do %>
+                <i class="far fa-envelope"></i>DM
+              <% end %>
+            </li>
+            <li>
+              <%= link_to user_path(current_user.id), class: "nav-link text-light nav_menu_li" do %>
+                <i class="far fa-user"></i>マイページ
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light nav_menu_li" do %>
+                <i class="fas fa-sign-out-alt"></i>ログアウト
+              <% end %>
+            </li>
             <% else %>
           <!--ログインしていない時-->
-            <li><%= link_to "トップ", root_path, class: "nav-link text-light nav_menu_li" %></li>
-            <li><%= link_to "About", home_about_path, class: "nav-link text-light nav_menu_li" %></li>
-            <li><%= link_to "新規登録", new_user_registration_path, class: "nav-link text-light nav_menu_li" %></li>
-            <li><%= link_to "ログイン", new_user_session_path, class: "nav-link text-light nav_menu_li" %></li>
+            <li>
+              <%= link_to root_path, class: "nav-link text-light nav_menu_li" do %>
+                <i class="fas fa-home"></i>ホーム
+              <% end %>
+            </li>
+            <li>
+              <%= link_to home_about_path, class: "nav-link text-light nav_menu_li" do %>
+                <i class="fas fa-gamepad"></i>about
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_registration_path, class: "nav-link text-light nav_menu_li" do %>
+                <i class="fas fa-user-plus"></i>新規登録
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_session_path, class: "nav-link text-light nav_menu_li" do %>
+                <i class="fas fa-sign-in-alt"></i>ログイン
+              <% end %>
+            </li>
           <% end %>
           </ul>
         </div>
       </nav>
+      <div class="social"></div>
   　</header>
 
     <%= yield %>
